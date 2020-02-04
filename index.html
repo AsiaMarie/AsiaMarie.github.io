@@ -1,22 +1,53 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 
 	<title>Firstr Git Repo!</title>
 	<meta charset="utf-8">
 
-	<script> 
-		alert('hello');
 
-	</script>
 
 </head>
 
 
 <body>
 
-	<h1> First Git Hub </h1>
+	<h1> First Quiz </h1>
 
+	<button onclick="firstFunction(0)"> Click Me </button>
+	<button onclick="firstFunction(1)"> Click Me </button>
+	<button onclick="firstFunction(2)"> Click Me </button>
+	<button onclick="firstFunction(3)"> Click Me </button>
+
+		<div id="someContent"></div>
+
+		<script> 
+		function firstFunction(param){
+
+			value = param;
+
+			switch(value) {
+				case 0:
+					console.log('a hike');
+					document.getElementById('someContent').innerHTML = '<h3>a hike</h3>';
+					break;
+				case 1:
+					console.log('netflix');
+					document.getElementById('someContent').innerHTML = '<h3> NETFLIX</h3>';
+					break;
+				case 2: 
+					console.log('wine');
+					document.getElementById('someContent').innerHTML ='<h3>WINE</h3>';
+					break;
+				case 3:
+					console.log('movie');
+					document.getElementById('someContent').innerHTML = '<h3>MOVIE</h3>';
+
+
+				}
+		}
+		</script>
+			
 
 </body>
 
