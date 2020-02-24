@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title> First Quiz </title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		
+		body{
+			margin:0px;
+			background:black;
+
+		}
+		h2{
+			text-align:center;
+			font:gill-sans;
+			font-size: 100px;
+			color:white;
+			background-color:black;
+			padding:40px;
+			margin:0px;
+			outline:5px dashed white;
+		}
+		button{
+    		height:150px;
+    		width:200px;
+    		padding: 0.5em 1em;
+    		text-decoration: none;
+    		background:Crimson;/*Button Color*/
+   			color: #FFF;
+    		border-bottom: solid 5px #627295;
+    		border-radius: 10px;
+    		margin:100px;
+    		font-size:30px;
+}
+		button:active {/*on Click*/
+    		-ms-transform: translateY(4px);
+   		 	-webkit-transform: translateY(4px);
+   		 	transform: translateY(4px);/*Move down*/
+    		border-bottom: none;/*disappears*/
+}
+
+		
+
+		#moodStatement{
+
+			float:right;
+			width:500px;
+			height:500px;
+			padding:25px 100px 25px;
+			color:White;
+
+
+		}
+		
+
+		div{ 
+			text-align:center;
+			font-family: sans-serif;
+
+		}
+
+
+	</style>
+</head>
+
+<body>
+<h2> Majic Fortunate Button </h2>
+
+<button onclick="moodRing()"> FORTUNE </button>
+
+
+<div id="moodStatement"></div>
+
+<script>
+
+		var moods = ['Love', 'Touch', 'Fear','BigA'];
+		 
+		function moodRing(){
+
+			value = Math.floor(Math.random() * 4);
+
+
+			switch(value) {
+				case 0:
+					//console.log(moods[0]);
+					document.getElementById('moodStatement').innerHTML = '<h3>You will be touched and feel energized and inspired to do things.</h3> <img src="img/Touch.jpg">';
+					document.body.style.backgroundColor = 'lightblue';
+					break;
+				case 1:
+					document.getElementById('moodStatement').innerHTML = '<h3> You will be faced with a difficult decisioin. Stand your ground and plow through it with the momentum you have build over the week.</h3> <img src="img/Fear.jpg">';
+					document.body.style.backgroundColor = 'black';
+					break;
+				case 2: 
+					console.log('Alright');
+					document.getElementById('moodStatement').innerHTML ='<h3>Love is in the Air, this could mean all kinds of love, Enjoy the positive energy and use it to propel you forward in life. </h3><img src="img/Love.jpg">';
+					document.body.style.backgroundColor = 'lightpink';
+					break;
+				case 3:
+					console.log('BigA');
+					document.getElementById('moodStatement').innerHTML ='<h3>You have been gifted with Big A energy. Use this to propel you forward!</h3><img src="img/BigA.GIF">';
+					document.body.style.backgroundColor = 'crimson';
+
+
+				}
+
+		}
+
+</script>
+
+	</body>
+
+
+	</html>
