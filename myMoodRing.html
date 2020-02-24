@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title> First Quiz </title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+<h2> Your Mood today </h2>
+
+<button onclick="moodRing()"> Click Me </button>
+
+
+<div id="moodStatement"></div>
+
+<script>
+
+		var moods = ['Happy', 'Sad', 'Alright','Tired'];
+
+		function moodRing(){
+
+			value = Math.floor(Math.random() * 4);
+
+			switch(value) {
+				case 0:
+					//console.log(moods[0]);
+					document.getElementById('moodStatement').innerHTML = '<h3> Happy</h3>';
+					document.body.style.backgroundColor = 'green';
+					break;
+				case 1:
+					document.getElementById('moodStatement').innerHTML = '<h3> Sad</h3>';
+					document.body.style.backgroundColor = 'blue';
+					break;
+				case 2: 
+					console.log('Alright');
+					document.getElementById('moodStatement').innerHTML ='<h3>Alright</h3>';
+					document.body.style.backgroundColor = 'yellow';
+					break;
+				case 3:
+					console.log('Tired');
+					document.getElementById('moodStatement').innerHTML ='<h3>Tired</h3>';
+					document.body.style.backgroundColor = 'magenta';
+
+
+				}
+		}
+
+</script>
+
+	</body>
+
+
+	</html>
