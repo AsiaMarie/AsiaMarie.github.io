@@ -1,0 +1,176 @@
+<html>
+<head>
+
+		<title> A Canvas</title>
+		<meta charset="utf-8">
+
+		<style>
+
+			body{
+				background-color:red;
+			}
+
+			canvas{
+				border:1px solid black;
+			}
+
+		</style>
+
+		
+</head>
+
+
+<body onload="createLineObjs('acanvas')"> <!-- when the page loads we can have all the objects load invisibly-->
+	<!--<button onclick="createLineObj('acanvas')"> Create Line Objects </button>-->
+	<button onclick="drawLines(lines)"> Draw Line Objects </button>
+	<button onclick="timeDrawLines()"> Time Draw </button>
+	<button onclick="timeEraseLines()"> Erase </button>
+
+	<canvas id="acanvas" height="400" width="400"></canvas>
+
+	<script>
+
+		var canvas = document.getElementById('acanvas');
+		var ctx = canvas.getContext('2d');
+		
+
+//line that we drew
+		ctx.beginPath();
+		ctx.moveTo(0,0);
+		ctx.lineWidth = 20;
+		ctx.strokeStyle = 'blue';
+		ctx.lineTo(400,400);
+		ctx.stroke();
+
+//object that was a rectangle
+		ctx.fillRect(25, 25, 100, 100);
+		ctx.clearRect(45,45,60,60);
+		ctx.lineWidth = 5;
+		ctx.strokeRect(50,50,50,50);
+
+
+
+		ctx.moveTo(200, 200);
+		ctx.bezierCurveTo(20, 150, 300, 100, 150, 20);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.arc(200, 200, 40, 0, 2 * Math.PI);
+		ctx.stroke();
+
+		ctx.font = "30px Arial";
+		ctx.fillText("Asia", 300, 30);
+
+
+		// Create gradient
+		var grd = ctx.createLinearGradient(0, 0, 400, 400);
+			grd.addColorStop(0, "black");
+			grd.addColorStop(1, "white");
+
+
+		// Fill with gradient
+		ctx.fillStyle = grd;
+		ctx.fillRect(250, 250, 150, 80);
+
+
+		ctx.strokeStyle = 'grey';
+		ctx.font = "100px Arial";
+		ctx.strokeText('Asia', 10, 300);
+		
+		//'this' is saying 'me'
+  		// this is just a singlar object. 
+		var lineObj ={
+			startX : 12,
+			startY : 0,
+			finishX : 12,
+			finishY :400,
+			//call the object function you call the name of the function and then the : and "function" with ()
+			drawLine: function(){
+				ctx.beginPath();
+				ctx.moveTo(this.startX, this.startY);
+				ctx.lineTo(this.finishX, this.finishY);
+				ctx.stroke();
+			}
+		}
+
+		lineObj.drawLine();
+
+//object contructor (parameters) action for a template. so you can call this function to create multiple objects
+
+		function createLineObj(startX, startY, finishX, finishY, context)//in your parameters you have to list out theses things in the orange.
+		{
+			this.startX =startX; //this start x will equal that start x
+			this.startY = startY; //this start y equals that start y
+			this.finishX = finishX;
+			this.finishY = finishY;
+			this.context = context;
+			this.drawLine = function(){
+				this.context.beginPath();
+				this.context.moveTo(this.startX, this.startY);
+				this.context.lineTo(this.finishX, this.finishY);
+				this.context.stroke();
+	}
+
+//this is like covering something up. Like wanting to create vibrating colors and it's grabable now. 
+			this.eraseLine = function(){
+				this.context.beginPath();
+				this.context.moveTo(this.startX, this.startY);
+				this.context.lineTo (this.finishX, this.finishY);
+				this.context.strokeStyle ='red';
+				this.context.stroke();
+		}
+	}
+//give it a variable name, say new, and pass the values.
+	line1 = new createLineObj(30, 0, 30, 400, ctx);
+	line1.drawLine();
+
+
+x = 0;
+var lines = [];
+//array must be out of the function to be called to that function.
+
+//function to make multiple line objects at once, when we call it we pass it the context Populates a whole bunch of objects at once. ***Check spelling always of everything***
+function createLineObjs(canvasID){
+	canvas = document.getElementById(canvasID); //pass it the id to get the canvas
+	ctx = canvas.getContext('2d');
+	width = canvas.width; //how many line objects we want
+	//manually written to go the width of the canvas - to create random names for the lines.
+	while(x < width){
+		lines [x] = new createLineObj(x,0,x,400,ctx);
+		x++; //the while, is less than the width of the canvas, for each element in the lines array, add a new line object using our object constructor in incriments. So it gave use lines from 0 - 399. Made the loopp to have a name to call back to. 
+
+	}
+
+}
+//passing the function array, for lines in lines (for x in array)
+function drawLines (array){
+	array = array; //took the line function and made sure it was still availible to us. while x is less than the length of this array, draw this line 
+	for(x in array){
+	array[x].drawLine();
+	}
+}
+
+
+var i=0 
+howManyTimes = 400;
+function timeDrawLines(){
+	lines[i].drawLine();
+	i++;
+	if(i < howManyTimes){
+		setTimeout(timeDrawLines, 100);
+	}
+}
+
+var i=0
+howManyTimes = 400;
+function timeEraseLines(){
+	lines[i].eraseLine();
+	i++;
+	if(i < howManyTimes){
+		setTimeout(timeEraseLines, 200);
+	}
+}
+	</script>
+
+</body>
+	</html>
