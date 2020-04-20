@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html"; charset="utf-8">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+
+
+<script>
+	
+	$(document).ready(function(){
+
+
+		$('p').click(function(){
+
+		alert('clicked the p tag');
+		});
+		$('#yellow').click(function(){
+			alert('yellow');
+			$('.green').fadeIn(5000);
+
+
+		})
+
+		$('.blue').click(function(){
+			alert('blue');
+
+			$('.green').fadeOut(1000);
+
+		});
+
+		$('#accordion').accordion();
+
+
+	});
+
+</script>
+	<style>
+	
+	#yellow{
+
+		padding:5px;
+		text-align: center;
+		background-color:yellow;
+		width:100%;
+
+	}
+
+	.green{
+
+		padding:5px;
+		text-align: center;
+		background-color:green;
+		width:100%;
+		display:none;
+
+	}
+
+	.blue{
+
+		padding:5px;
+		text-align: center;
+		background-color:blue;
+		width:100%;
+
+	}
+
+	.hideshow {
+	padding: 5px;
+	text-align: center;
+	background-color: purple;
+	border: solid 1px;
+}
+
+	#mouseover {
+	border: solid 1px;
+	height: 100px;
+	width: 100px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+	
+	<div>
+		<h1>Events</h1>
+		<a href="#">Venue</a>
+		<a href="#">Directions</a>
+		<a href="#">About</a>
+		<a href="#">Home</a>
+	</div>
+</header>
+
+	<p>click</p>
+	<div id="yellow"> yellow box</div>
+	<div class="blue"> blue box </div>
+	<div class="green"> blue box </div>
+<div class="hideshow">I hide and show</div>
+<div id="mouseover">I have mouseover</div>
+
+
+
+<div id="accordion">
+  <h3>Big Hall</h3>
+  <div>
+    <ul id="states">
+    	<li>Item one</li>
+    	<li>Item 2</li>
+    </ul>
+  </div>
+  <h3>Smokey Club</h3>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    </p>
+  </div>
+  <h3>Little Cafe</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+  </div>
+</div>
+
+	<script>
+	
+
+
+</script>
+</body>
+
+
+</html>
