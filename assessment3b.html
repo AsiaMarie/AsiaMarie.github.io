@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html"; charset="utf-8">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+
+
+<script>
+	
+	$(document).ready(function(){
+		$('#accordion').accordion();
+	});
+
+</script>
+
+<script>
+bigHallEvents = [];
+littleCafeEvents = [];
+smokeyClubEvent = [];
+
+
+	 $.get("https://blmak.github.io/BigMusicClubConclomerateDates.json" , function(data, status){
+		console.log(data);
+		console.log(status);
+	});
+
+	if (status == 'success'){
+			showConcert(data);
+			for (x in data){
+				venue = data[x]['venue'];
+				switch(venue){
+					case "Big Hall":
+						bigHallEvents.push(data[x]);
+						break;
+					case "Smokey Club":
+						smokeyClubEvents.push(data[x]);
+						break;
+					case "Little Café":
+						littleCafeEvents.push(data[x]);
+						break;
+				}
+			}
+		}
+
+	else {
+			alert('not availible');
+		};
+
+
+
+		// 
+
+	
+</script>
+	<style>
+
+		body{
+			margin:0px;
+		}
+
+		header{
+			width:100%;
+			height:100px;
+			padding:15px;
+			background-color:crimson;
+		}
+
+		h1{
+			color:white;
+			font-size: 30px;
+			padding:5px;
+			text-align:right;
+		}
+
+		a{
+			display:inline-block;
+			text-decoration:none;
+			color:white;
+			padding:6px;
+			float:right;
+		}
+
+		a:hover {
+			background-color:black
+		}
+	
+	#accordion {
+		width: 800px;
+ 		margin: 20px auto;
+}
+
+	#accordion .ui-accordion-content {
+  		width: auto;
+  		background-color: rgba(0, 0, 0, .6);
+  		color: rgba(255,255,255,1.0);
+  		font-size: 12px;
+  		line-height: 16px;
+}
+
+	#accordion .ui-accordion-content > * {
+ 		margin: 0;
+  		padding: 20px;
+}
+
+	#accordion .ui-accordion-header {
+  		background-color: green;
+ 		margin: 0px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+	
+	<div>
+		<h1>Events</h1>
+		<a href="#">Venue</a>
+		<a href="#">Directions</a>
+		<a href="#">About</a>
+		<a href="#">Home</a>
+	</div>
+</header>
+
+
+<div id="accordion">
+  <h3>Big Hall</h3>
+  <div id="bigHall">
+   
+  </div>
+  <h3>Smokey Club</h3>
+  <div id="smokeyClub">
+  
+  </div>
+  <h3>Little Cafe</h3>
+  <div id="littleCafe">
+    
+  </div>
+  
+</div>
+
+	<script>
+	
+
+
+</script>
+</body>
+
+
+</html>
